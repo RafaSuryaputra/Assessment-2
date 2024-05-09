@@ -47,8 +47,8 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.d3if3162.app.R
-import org.d3if3162.app.database.CatatanDb
-import org.d3if3162.app.model.Catatan
+import org.d3if3162.app.database.KaryawanDb
+import org.d3if3162.app.model.Karyawan
 import org.d3if3162.app.navigation.Screen
 import org.d3if3162.app.ui.screen.MainViewModel
 import org.d3if3162.app.ui.theme.AppTheme
@@ -63,7 +63,8 @@ fun MainScreen(navController: NavHostController){
 
     Scaffold(
         topBar = {
-            TopAppBar(title = { Text(text = stringResource(id = R.string.app_name)) },
+            TopAppBar(title = { Text(text = stringResource(id = R.string.app_name))
+                },
                 colors = TopAppBarDefaults.mediumTopAppBarColors(
                     containerColor = MaterialTheme.colorScheme.primaryContainer,
                     titleContentColor = MaterialTheme.colorScheme.primary
@@ -112,15 +113,17 @@ fun MainScreen(navController: NavHostController){
 @Composable
 fun ScreenContent(showList: Boolean, modifier: Modifier, navController: NavHostController) {
     val context = LocalContext.current
-    val db = CatatanDb.getInstance(context)
+    val db = KaryawanDb.getInstance(context)
     val factory = ViewModelFactory(db.dao)
     val viewModel: MainViewModel = viewModel(factory = factory)
     val data by viewModel.data.collectAsState()
+
     Image(
         painter = painterResource(id = R.drawable.logo),
         contentDescription = "logo",
         modifier = modifier.fillMaxSize().padding(16.dp),
     )
+
     if (data.isEmpty()) {
         Column (
             modifier = modifier
@@ -141,7 +144,7 @@ fun ScreenContent(showList: Boolean, modifier: Modifier, navController: NavHostC
                 contentPadding = PaddingValues(bottom = 84.dp)
         ) {
             items(data) {
-                ListItem(catatan = it) {
+                ListItem(karyawan = it) {
                     navController.navigate(Screen.FormUbah.withId(it.id))
                 }
                 Divider()
@@ -157,7 +160,7 @@ fun ScreenContent(showList: Boolean, modifier: Modifier, navController: NavHostC
                 contentPadding = PaddingValues(8.dp, 8.dp, 8.dp, 84.dp  )
             ) {
                 items(data) {
-                    GridItem(catatan = it) {
+                    GridItem(karyawan = it) {
                         navController.navigate(Screen.FormUbah.withId(it.id))
                     }
                 }
@@ -167,7 +170,7 @@ fun ScreenContent(showList: Boolean, modifier: Modifier, navController: NavHostC
 }
 
 @Composable
-fun ListItem(catatan: Catatan, onClick: () -> Unit) {
+fun ListItem(karyawan: Karyawan, onClick: () -> Unit) {
     Column (
         modifier = Modifier
             .fillMaxWidth()
@@ -176,22 +179,27 @@ fun ListItem(catatan: Catatan, onClick: () -> Unit) {
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ){
         Text(
-            text = catatan.judul,
+            text = karyawan.nama,
             maxLines =  1,
             overflow = TextOverflow.Ellipsis,
             fontWeight = FontWeight.Bold
         )
         Text(
-            text = catatan.catatan,
+            text = karyawan.data_diri,
             maxLines =  2,
             overflow = TextOverflow.Ellipsis
         )
-        Text(text = catatan.tanggal)
+        Text(
+            text = karyawan.absen
+        )
+        Text(
+            text = karyawan.tanggal
+        )
     }
 }
 
 @Composable
-fun GridItem(catatan: Catatan,onClick: () -> Unit) {
+fun GridItem(karyawan: Karyawan, onClick: () -> Unit) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -206,17 +214,22 @@ fun GridItem(catatan: Catatan,onClick: () -> Unit) {
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
             Text(
-                text = catatan.judul,
+                text = karyawan.nama,
                 maxLines = 2,
                 overflow = TextOverflow.Ellipsis,
                 fontWeight = FontWeight.Bold
             )
             Text(
-                text = catatan.catatan,
+                text = karyawan.data_diri,
                 maxLines = 4,
                 overflow = TextOverflow.Ellipsis
             )
-            Text(text = catatan.tanggal)
+            Text(
+                text = karyawan.absen
+            )
+            Text(
+                text = karyawan.tanggal
+            )
         }
     }
 }

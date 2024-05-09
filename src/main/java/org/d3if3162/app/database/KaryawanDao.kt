@@ -5,22 +5,22 @@ import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
 import kotlinx.coroutines.flow.Flow
-import org.d3if3162.app.model.Catatan
+import org.d3if3162.app.model.Karyawan
 
 @Dao
 interface
-CatatanDao {
+    KaryawanDao {
     @Insert
-    suspend fun insert(catatan: Catatan)
+    suspend fun insert(karyawan: Karyawan)
 
     @Update
-    suspend fun update(catatan: Catatan)
+    suspend fun update(karyawan: Karyawan)
 
-    @Query("SELECT * FROM catatan ORDER BY tanggal DESC")
-    fun getCatatan(): Flow<List<Catatan>>
+    @Query("SELECT * FROM catatan ORDER BY nama,data_diri,tanggal ASC")
+    fun getKaryawan(): Flow<List<Karyawan>>
 
     @Query("SELECT * FROM catatan WHERE id = :id")
-    suspend fun getCatatanById(id: Long): Catatan?
+    suspend fun getKaryawanById(id: Long): Karyawan?
 
     @Query("DELETE FROM catatan WHERE id = :id")
     suspend fun deleteById(id: Long)

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Test</string>
+    <string name="app_name">Absensi Pegawai</string>
     <string name="list_kosong">Belum ada data</string>
     <string name="x_diklik">%1$s diklik!</string>
     <string name="tambah_karyawan">Tambah Karyawan</string>
@@ -16,4 +16,8 @@
     <string name="tombol_batal">Batal</string>
     <string name="list">Tampilan list</string>
     <string name="grid">Tampilan grid</string>
+    <string name="alpha">Alpha</string>
+    <string name="hadir">hadir</string>
+    <string name="izin">Izin</string>
+    <string name="sakit">Sakit</string>
 </resources>
