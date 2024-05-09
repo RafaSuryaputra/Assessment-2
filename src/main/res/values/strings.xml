@@ -1,3 +1,19 @@
 <resources>
-    <string name="app_name">App</string>
+    <string name="app_name">Test</string>
+    <string name="list_kosong">Belum ada data</string>
+    <string name="x_diklik">%1$s diklik!</string>
+    <string name="tambah_karyawan">Tambah Karyawan</string>
+    <string name="nama">Nama Karyawan</string>
+    <string name="data_diri">Data Diri Karyawan</string>
+    <string name="kembali">Kembali</string>
+    <string name="simpan">Simpan</string>
+    <string name="edit_karyawan">Edit Karyawan</string>
+    <string name="invalid">nama dan data diri karyawan tidak boleh kosong.</string>
+    <string name="lainnya">Opsi lainnya.</string>
+    <string name="hapus">Hapus Data</string>
+    <string name="pesan_hapus">Hapus Data ini?</string>
+    <string name="tombol_hapus">Hapus</string>
+    <string name="tombol_batal">Batal</string>
+    <string name="list">Tampilan list</string>
+    <string name="grid">Tampilan grid</string>
 </resources>
