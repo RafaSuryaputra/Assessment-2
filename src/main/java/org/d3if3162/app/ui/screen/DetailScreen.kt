@@ -163,7 +163,7 @@ fun DeleteAction(delete: () -> Unit) {
         Icon(
             imageVector = Icons.Filled.Delete,
             contentDescription = stringResource(id = R.string.lainnya),
-            tint = MaterialTheme.colorScheme.primary
+            tint = MaterialTheme.colorScheme.onBackground
         )
         DropdownMenu(
             expanded = expanded,

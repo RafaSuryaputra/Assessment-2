@@ -5,9 +5,12 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.staggeredgrid.LazyVerticalStaggeredGrid
@@ -16,7 +19,6 @@ import androidx.compose.foundation.lazy.staggeredgrid.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Add
-import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.BottomAppBarDefaults
 import androidx.compose.material3.Card
@@ -69,11 +71,26 @@ fun MainScreen(navController: NavHostController){
 
     Scaffold(
         topBar = {
-            TopAppBar(title = { Text(text = stringResource(id = R.string.app_name))
-                },
+            TopAppBar(title = {Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.Center
+            )
+            {
+                Image(
+                    painter = painterResource(id = R.drawable.logobebek),
+                    contentDescription = stringResource(
+                        id = R.string.app_name),
+                    modifier = Modifier
+                        .height(50.dp)
+                        .width(50.dp)
+                        .padding(end = 10.dp),
+                    )
+                Text(text = (stringResource(id = R.string.app_name)))
+            }
+        },
                 colors = TopAppBarDefaults.mediumTopAppBarColors(
-                containerColor = Color(0xFFF4CC53), // Warna container
-                titleContentColor = Color.White // Warna konten judul
+                containerColor = Color(0xFFF4CC53),
+                titleContentColor = Color.White
             ),
                 actions = {
                     IconButton(onClick = {
@@ -169,7 +186,7 @@ fun ScreenContent(showList: Boolean, modifier: Modifier, navController: NavHostC
         if (showList) {
             LazyColumn(
                 modifier = modifier.fillMaxSize(),
-                contentPadding = PaddingValues(bottom = 84.dp)
+                contentPadding = PaddingValues(bottom = 100.dp)
         ) {
             items(data) {
                 ListItem(karyawan = it) {

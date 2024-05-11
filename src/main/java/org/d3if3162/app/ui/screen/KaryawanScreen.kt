@@ -1,19 +1,15 @@
 package org.d3if3162.app.ui.screen
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material3.AlertDialogDefaults.shape
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -25,7 +21,6 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -49,16 +44,16 @@ fun KaryawanScreen(navController: NavHostController) {
                         Icon(
                             imageVector = Icons.Filled.ArrowBack,
                             contentDescription = stringResource(id = R.string.kembali),
-                            tint = MaterialTheme.colorScheme.primary
+                            tint = MaterialTheme.colorScheme.onBackground
                         )
                     }
                 },
                 title = {
-                    Text(text = stringResource(id = R.string.profile_name)) // Replace with your name
+                    Text(text = stringResource(id = R.string.profile_name))
                 },
                 colors = TopAppBarDefaults.mediumTopAppBarColors(
-                    containerColor = Color(0xFFF4CC53), // Warna container
-                    titleContentColor = Color.White // Warna konten judul
+                    containerColor = Color(0xFFF4CC53),
+                    titleContentColor = Color.White
                 )
             )
         }
