@@ -20,4 +20,13 @@
     <string name="hadir">hadir</string>
     <string name="izin">Izin</string>
     <string name="sakit">Sakit</string>
+    <string name="copyright">Aplikasi Absensi Karyawan adalah sebuah aplikasi sederhana yang memungkinkan pengguna untuk melakukan pencatatan absensi karyawan secara efisien.
+        Dengan antarmuka yang intuitif, pengguna dapat dengan mudah memasukkan data absensi karyawan dan melihat laporan absensi secara langsung.
+        \n\nSelain itu, aplikasi juga menyediakan fitur untuk mengelola data karyawan, termasuk informasi pribadi dan data absensi mereka.
+        Pengguna dapat melakukan pencarian dan pengeditan data karyawan dengan mudah.\n\n
+        Aplikasi ini dirancang untuk membantu perusahaan dalam melacak dan mengelola absensi karyawan dengan lebih efektif.
+        \n\nAplikasi ini dibuat untuk Assessment 2
+        .\n\nCopyright © 2024 Rafa Suryaputra.\nAll rights reserved.</string>
+    <string name="about">Tentang Aplikasi</string>
+    <string name="tentang_aplikasi">Tentang Aplikasi</string>
 </resources>

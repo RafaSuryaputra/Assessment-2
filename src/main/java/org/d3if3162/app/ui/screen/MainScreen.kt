@@ -16,6 +16,7 @@ import androidx.compose.foundation.lazy.staggeredgrid.StaggeredGridCells
 import androidx.compose.foundation.lazy.staggeredgrid.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Divider
@@ -84,8 +85,18 @@ fun MainScreen(navController: NavHostController){
                             ),
                             contentDescription = stringResource(
                                 if (showList) R.string.grid
-                                else R.string.list
+                                else R.string.list,
+                                stringResource(R.string.tentang_aplikasi),
                             ),
+                            tint = MaterialTheme.colorScheme.onBackground
+                        )
+                    }
+                    IconButton(onClick = {
+                        navController.navigate(Screen.About.route)
+                    }) {
+                        Icon(
+                            painter = painterResource(R.drawable.baseline_info_24),
+                            contentDescription = stringResource(R.string.about),
                             tint = MaterialTheme.colorScheme.onBackground
                         )
                     }
