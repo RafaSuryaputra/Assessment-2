@@ -2,7 +2,6 @@ package org.d3if3162.app.ui.screen
 
 import android.content.res.Configuration
 import android.widget.Toast
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -40,7 +39,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.input.ImeAction
@@ -189,11 +187,6 @@ fun FormKaryawan(
     radioOpsi: List<String>,
     modifier: Modifier
 ) {
-    Image(
-        painter = painterResource(id = R.drawable.logo),
-        contentDescription = "logo",
-        modifier = modifier.fillMaxSize().padding(16.dp),
-    )
     Column(
         modifier = modifier
             .fillMaxSize()

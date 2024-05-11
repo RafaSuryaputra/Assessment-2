@@ -235,7 +235,8 @@ fun ListItem(karyawan: Karyawan, onClick: () -> Unit) {
             overflow = TextOverflow.Ellipsis
         )
         Text(
-            text = karyawan.absen
+            text = karyawan.absen,
+            fontWeight = FontWeight.Bold
         )
         Text(
             text = karyawan.tanggal
