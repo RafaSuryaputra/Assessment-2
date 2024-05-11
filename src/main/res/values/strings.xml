@@ -29,4 +29,9 @@
         .\n\nCopyright © 2024 Rafa Suryaputra.\nAll rights reserved.</string>
     <string name="about">Tentang Aplikasi</string>
     <string name="tentang_aplikasi">Tentang Aplikasi</string>
+    <string name="profile_picture">Rafa</string>
+    <string name="profile_name">Biodata</string>
+    <string name="profile_bio">Nama = Rafa Suryaputra\n\n
+    Kelas = D3IF-46-04\n\n
+    NIM = 6706223162</string>
 </resources>

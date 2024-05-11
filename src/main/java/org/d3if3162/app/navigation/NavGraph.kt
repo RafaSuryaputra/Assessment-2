@@ -11,6 +11,7 @@ import androidx.navigation.navArgument
 import org.d3if3162.app.ui.screen.AboutScreen
 import org.d3if3162.app.ui.screen.DetailScreen
 import org.d3if3162.app.ui.screen.KEY_ID_KARYAWAN
+import org.d3if3162.app.ui.screen.KaryawanScreen
 
 @Composable
 fun SetupNavGraph(navController: NavHostController = rememberNavController()) {
@@ -23,6 +24,9 @@ fun SetupNavGraph(navController: NavHostController = rememberNavController()) {
         }
         composable(route = Screen.About.route) {
             AboutScreen(navController)
+        }
+        composable(route = Screen.Karyawan.route)   {
+            KaryawanScreen(navController)
         }
         composable(route = Screen.FormBaru.route) {
             DetailScreen(navController)

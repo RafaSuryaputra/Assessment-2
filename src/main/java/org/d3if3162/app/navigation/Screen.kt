@@ -9,4 +9,5 @@ sealed class Screen(val route: String ) {
         fun withId(id: Long) = "detailScreen/$id"
     }
     data object About: Screen("aboutScreen")
+    data object  Karyawan: Screen ("karyawanScreen")
 }
