@@ -1,6 +1,7 @@
 import android.content.res.Configuration
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -40,6 +41,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
@@ -66,9 +68,9 @@ fun MainScreen(navController: NavHostController){
             TopAppBar(title = { Text(text = stringResource(id = R.string.app_name))
                 },
                 colors = TopAppBarDefaults.mediumTopAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.primaryContainer,
-                    titleContentColor = MaterialTheme.colorScheme.primary
-                ),
+                containerColor = Color(0xFFF4CC53), // Warna container
+                titleContentColor = Color.White // Warna konten judul
+            ),
                 actions = {
                     IconButton(onClick = {
                         CoroutineScope(Dispatchers.IO).launch {
@@ -84,7 +86,7 @@ fun MainScreen(navController: NavHostController){
                                 if (showList) R.string.grid
                                 else R.string.list
                             ),
-                            tint = MaterialTheme.colorScheme.primary
+                            tint = MaterialTheme.colorScheme.onBackground
                         )
                     }
                 }
@@ -94,14 +96,13 @@ fun MainScreen(navController: NavHostController){
             FloatingActionButton(
                 onClick = {
                 navController.navigate(Screen.FormBaru.route)
-                }
+                },
             ) {
                 Icon(
                     imageVector = Icons.Filled.Add,
                     contentDescription = stringResource(id = R.string.tambah_karyawan),
-                    tint = MaterialTheme.colorScheme.primary
+                    tint = MaterialTheme.colorScheme.onBackground
                 )
-                
             }
         }
     ) { padding ->
@@ -134,6 +135,8 @@ fun ScreenContent(showList: Boolean, modifier: Modifier, navController: NavHostC
         ){
             Text(
                 text = stringResource(id = R.string.list_kosong),
+                fontWeight = FontWeight.Bold,
+                fontSize = 25.sp
             )
         }
 
@@ -225,7 +228,8 @@ fun GridItem(karyawan: Karyawan, onClick: () -> Unit) {
                 overflow = TextOverflow.Ellipsis
             )
             Text(
-                text = karyawan.absen
+                text = karyawan.absen,
+                fontWeight = FontWeight.Bold
             )
             Text(
                 text = karyawan.tanggal

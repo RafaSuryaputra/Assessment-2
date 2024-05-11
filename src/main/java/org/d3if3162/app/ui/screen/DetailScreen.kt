@@ -17,6 +17,7 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Check
+import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
@@ -96,7 +97,7 @@ fun DetailScreen(navController: NavHostController, id: Long? = null){
                     Icon(
                         imageVector = Icons.Filled.ArrowBack,
                         contentDescription = stringResource(id = R.string.kembali),
-                        tint = MaterialTheme.colorScheme.primary
+                        tint = MaterialTheme.colorScheme.onBackground
                         )
                     }
                 },
@@ -107,8 +108,8 @@ fun DetailScreen(navController: NavHostController, id: Long? = null){
                         Text(text = stringResource(id = R.string.edit_karyawan))
                 },
                 colors = TopAppBarDefaults.mediumTopAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.primaryContainer,
-                    titleContentColor = MaterialTheme.colorScheme.primary,
+                    containerColor = Color(0xFFF4CC53), // Warna container
+                    titleContentColor = Color.White // Warna konten judul
                 ),
                 actions = {
                     IconButton(onClick = {
@@ -125,7 +126,7 @@ fun DetailScreen(navController: NavHostController, id: Long? = null){
                         Icon(
                             imageVector = Icons.Filled.Check,
                             contentDescription = stringResource(id = R.string.simpan),
-                            tint = MaterialTheme.colorScheme.primary
+                            tint = MaterialTheme.colorScheme.onBackground
                         )
                     }
                     if (id != null) {
@@ -155,13 +156,14 @@ fun DetailScreen(navController: NavHostController, id: Long? = null){
         )
     }
 }
+
 @Composable
 fun DeleteAction(delete: () -> Unit) {
     var expanded by remember { mutableStateOf(false) }
 
     IconButton(onClick = {expanded = true}) {
         Icon(
-            imageVector = Icons.Filled.MoreVert,
+            imageVector = Icons.Filled.Delete,
             contentDescription = stringResource(id = R.string.lainnya),
             tint = MaterialTheme.colorScheme.primary
         )
@@ -226,13 +228,14 @@ fun FormKaryawan(
                 .border(1.dp, Color.Gray, RoundedCornerShape(4.dp))
         ){
             radioOpsi.forEach { text -> absenOption(
-                label = text, isSelected = pilihanAbsen == text, modifier = Modifier
+                label = text,
+                isSelected = pilihanAbsen == text,
+                modifier = Modifier
                     .selectable(
                         selected = pilihanAbsen == text,
                         onClick = { absenBerubah(text) },
                         role = Role.RadioButton
                     )
-
                     .padding(16.dp)
                     .fillMaxWidth()
             )
